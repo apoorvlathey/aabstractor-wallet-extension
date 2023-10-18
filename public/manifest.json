@@ -1,0 +1,35 @@
+{
+  "name": "AAbstractor",
+  "version": "0.1.0",
+  "manifest_version": 3,
+  "description": "Injectable wallet for your ERC-6551 Tokenbound Accounts",
+  "homepage_url": "https://aabstr.actor",
+  "action": {
+    "default_title": "AAbstractor",
+    "default_icon": {
+      "128": "./icons/icon128.png"
+    },
+    "default_popup": "index.html"
+  },
+  "icons": {
+    "128": "./icons/icon128.png",
+    "48": "./icons/icon48.png",
+    "16": "./icons/icon16.png"
+  },
+  "content_scripts": [
+    {
+      "matches": ["file://*/*", "http://*/*", "https://*/*"],
+      "js": ["static/js/inject.js"],
+      "run_at": "document_start",
+      "all_frames": true
+    }
+  ],
+  "permissions": ["activeTab", "storage"],
+  "host_permissions": ["https://*/*", "http://*/*"],
+  "web_accessible_resources": [
+    {
+      "resources": ["static/js/inpage.js"],
+      "matches": ["file://*/*", "http://*/*", "https://*/*"]
+    }
+  ]
+}
